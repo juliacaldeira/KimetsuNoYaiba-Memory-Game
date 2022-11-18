@@ -13,10 +13,12 @@ let visibility = 0;
 
 function addElement() {
     let back = document.getElementById('background');
+    let divStart = document.getElementById('ButtonBackground');
     let imgs = [];
     let imgs_srcs = [];
 
     back.removeChild(button);
+    back.removeChild(divStart);
 
     for(let i=0;i<characters.length;i++){
         imgs_srcs.push(characters[i]);
@@ -52,7 +54,12 @@ function addElement() {
 
     }
 
+    const timer = document.createElement('div');
+    timer.id = 'timer';
+    timer.textContent = '00:00';
+    back.appendChild(timer);
     
+
     
 }
 
@@ -68,6 +75,7 @@ function round(id) {
     }
     
     if(visibility == 5) {
+        //timer(false);
         end();
     }
 
@@ -110,3 +118,5 @@ function end() {
     back.appendChild(endDiv);
     back.appendChild(btn);
 }
+
+

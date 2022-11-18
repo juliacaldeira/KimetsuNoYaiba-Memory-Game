@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family= Marhey & display = swap');
+
+
 body {
     padding: 0;
     margin: 0;
@@ -36,13 +39,43 @@ body {
 #restartBtn, #start {
     width: 200px;
     height: 80px;
-    color: #263B6A;
-    background: white;
+    color: #402550;
+    background: rgba(255, 255, 255, 0.836);
+    border: 2px solid rgba(56, 38, 80, 0.774);
     cursor: pointer;
-    border-radius: 5px;
-    border: none;
+    border-radius: 24px;
     font-size: 20px;
+    font-family: 'Marhey', cursive;
+    position: absolute;
+    top: 70%;
+    left: 200px;
+    transform: translate(0, -50%);
+}
+#ButtonBackground {
+    width: 420px;
+    height: 450px;
+    background:hwb(0 86% 14% / 0.356);
+    border-radius: 24px;
     position: absolute;
     top: 50%;
-    transform: translate(-80%, -50%);
+    left: 100px;
+    transform: translate(0, -50%);
+    font-size: 40px;
+    font-family: 'Marhey', cursive;
+    font-weight: 600;
+    text-shadow:0.04em 0.03em #6e6e6e;
+    text-align: center;
+    color:rgba(59, 34, 82, 0.76);
+}
+#timer {
+    width: 100px;
+    height: 50px;
+    background:hwb(0 86% 14% / 0.356);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    font-size: 40px;
+    text-align: center;
+    
 }
