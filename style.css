@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: url('./images/Screen.png');
+    
+}
+#background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+}
+.card {
+    width: 200px;
+    height: 200px;
+    background: rgba(225, 193, 255, 0.253);
+    margin: 20px;
+    cursor: pointer;
+}
+
+.cube {
+    visibility: hidden;
+}
+#winMessage {
+    background: url('./images/winScreen.jpg');
+    width: 650px;
+    height: auto;
+    position: fixed;
+    z-index: 10;
+}
