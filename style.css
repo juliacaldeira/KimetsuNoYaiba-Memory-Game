@@ -25,10 +25,24 @@ body {
 .cube {
     visibility: hidden;
 }
-#winMessage {
-    background: url('./images/winScreen.jpg');
-    width: 650px;
-    height: auto;
-    position: fixed;
-    z-index: 10;
+#endScreen {
+    width: 400px;
+    height: 400px;
+    font-size: 20px;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+#restartBtn, #start {
+    width: 200px;
+    height: 80px;
+    color: #263B6A;
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-80%, -50%);
 }

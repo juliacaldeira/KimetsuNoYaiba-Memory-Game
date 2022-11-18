@@ -1,4 +1,6 @@
-document.body.onload = addElement;
+const button = document.querySelector("button");
+button.addEventListener("click", addElement);
+
 let characters = ['./images/tanjiro.jpg',
     './images/nezuko.jpg',
     './images/muzan.jpg',
@@ -13,6 +15,8 @@ function addElement() {
     let back = document.getElementById('background');
     let imgs = [];
     let imgs_srcs = [];
+
+    back.removeChild(button);
 
     for(let i=0;i<characters.length;i++){
         imgs_srcs.push(characters[i]);
@@ -62,12 +66,9 @@ function round(id) {
     if (count == 2) {
         verify(cubes);
     }
-    console.log(visibility);
+    
     if(visibility == 5) {
-        const win = document.createElement('div');
-        win.id = 'winMessage';
-        document.getElementById('background').appendChild(win);
-        //document.body.style.background = 'black';
+        end();
     }
 
 }
@@ -92,4 +93,20 @@ function verify(cubeHTML) {
         cubes = [];
     }, 500);
    }
+}
+
+function end() {
+    for(let i=0;i<10;i++) {
+        const id = document.getElementById(i);
+        id.parentNode.removeChild(id);
+    }
+    const back = document.getElementById('background');
+    let endDiv = document.createElement('div');
+    endDiv.id = 'endScreen';
+    endDiv.textContent = 'Parabéns! Você ganhou!';
+    let btn = document.createElement('button');
+    btn.id = 'restartBtn';
+    btn.textContent = 'Jogar de novo';
+    back.appendChild(endDiv);
+    back.appendChild(btn);
 }
