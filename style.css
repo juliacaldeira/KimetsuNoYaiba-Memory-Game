@@ -24,8 +24,11 @@ body {
     margin: 20px;
     cursor: pointer;
 }
-
-.cube {
+#char_imgs {
+    width: 200px;
+    height: 200px;
+}
+.imgCard {
     visibility: hidden;
 }
 #endScreen {
