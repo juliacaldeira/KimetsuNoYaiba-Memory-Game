@@ -15,18 +15,18 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 50px auto;
+    margin: 15px auto;
 }
 .card {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     background: rgba(225, 193, 255, 0.253);
-    margin: 20px;
+    margin: 10px 20px;
     cursor: pointer;
 }
 #char_imgs {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }
 .imgCard {
     visibility: hidden;

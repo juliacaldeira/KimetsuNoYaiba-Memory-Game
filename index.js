@@ -5,7 +5,11 @@ let characters = ['./images/tanjiro.jpg',
     './images/nezuko.jpg',
     './images/muzan.jpg',
     './images/inosuke.jpg',
-    './images/zenitsu.jpg'];
+    './images/zenitsu.jpg',
+    './images/shinobu.jpg',
+    './images/tomioka.jpg',
+    './images/kyojuro.jpg',
+    './images/uzui.jpg'];
 let img_card;
 let count = 1;
 let img_cards = [];
@@ -72,7 +76,10 @@ function showCard(id) {
     };
     
     if(visibility == characters.length) {
-        end();
+        setTimeout(function() {
+            end();
+        }, 500);
+        
     }
 
 }
