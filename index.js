@@ -106,6 +106,18 @@ function end() {
     let btn = document.createElement('button');
     btn.id = 'restartBtn';
     btn.textContent = 'Jogar de novo';
+    let endDiv = document.createElement('div');
+    endDiv.id = 'endDiv';
+    endDiv.innerText = 'Parabéns. Você terminou em '+time.textContent;
+    if (parseInt(min) < 1) {
+    endDiv.innerHTML += '<br> &starf;&starf;&starf;';
+    } else if (min < 2) {
+    endDiv.innerHTML += '<br> &starf;&starf;';
+    } else {
+    endDiv.innerHTML += '<br> &starf;';
+    }
+    console.log(parseInt(min) > 1);
+    back.appendChild(endDiv);
     back.appendChild(btn);
 }
 
