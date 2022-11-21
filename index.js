@@ -1,5 +1,6 @@
 const button = document.querySelector("button");
 button.addEventListener("click", addElement);
+button.addEventListener("click", timer);
 
 let characters = ['./images/tanjiro.jpg',
     './images/nezuko.jpg',
@@ -15,14 +16,23 @@ let count = 1;
 let img_cards = [];
 let visibility = 0;
 const back = document.getElementById('background');
+const time = document.getElementById('timer');
+const min = document.getElementById('min');
+const sec = document.getElementById('sec');
+let s = 0;
+let m = 1;
+let timeController = true;
 
 function addElement() {
     const divStart = document.getElementById('ButtonBackground');
+    time.style.visibility = 'visible';
+
     const imgs = [];
     const imgs_srcs = [];
 
     back.removeChild(button);
     back.removeChild(divStart);
+
 
     for(let i=0;i<characters.length;i++){
         imgs_srcs.push(characters[i]);
@@ -56,6 +66,7 @@ function addElement() {
         div.appendChild(img_card);
 
     }
+
     
 }
 
@@ -76,6 +87,7 @@ function showCard(id) {
     };
     
     if(visibility == characters.length) {
+        timeController = false;
         setTimeout(function() {
             end();
         }, 500);
@@ -110,10 +122,33 @@ function end() {
         const id = document.getElementById(i);
         id.parentNode.removeChild(id);
     }
+    // change this line
+    //time.style.visibility = 'hidden';
     let btn = document.createElement('button');
     btn.id = 'restartBtn';
     btn.textContent = 'Jogar de novo';
     back.appendChild(btn);
 }
 
+function timer() { 
+    if(timeController) {
+    if (s<10) {
+        sec.innerText = '0'+s;
+    } else if (s<60) {
+        sec.innerText = s;
+    } else if (s == 60) {
+        s = 0;
+        sec.innerText = '00';
+        if (m<10) {
+            min.innerText = '0'+m;
+        } else {
+            min.innerText = m;
+        }
+        m++;
+    }
+        s++;
+
+        setTimeout(timer, 1000);
+    }
+};
 
