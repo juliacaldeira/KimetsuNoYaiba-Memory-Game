@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family= Marhey & display = swap');
 
-
 body {
     padding: 0;
     margin: 0;
     background: url('./images/Screen.png');
-    
+    overflow: hidden;
 }
 #background {
     width: 100%;
@@ -15,13 +14,13 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 15px auto;
+    margin: 25px auto;
 }
 .card {
     width: 180px;
     height: 180px;
     background: rgba(225, 193, 255, 0.253);
-    margin: 10px 20px;
+    margin: 8px 20px;
     cursor: pointer;
 }
 #char_imgs {
@@ -78,7 +77,23 @@ body {
     top: 0;
     left: 0;
     border-radius: 5px;
-    font-size: 30px;
+    font-size: 28px;
     text-align: center;
     visibility: hidden;
 }
+
+@media (max-width: 480px) {
+    body {
+        overflow: auto;
+    }
+    .card {
+        width: 100px;
+        height: 100px;
+        margin: 10px 10px;
+        background: rgba(225, 193, 255, 0.4);
+    }
+    #char_imgs {
+        width: 90px;
+        height: 90px;
+    }
+  }
