@@ -1,5 +1,5 @@
 const button = document.querySelector("button");
-button.addEventListener("click", addElement);
+button.addEventListener("click", mainGame);
 button.addEventListener("click", timer);
 
 let characters = ['./images/tanjiro.jpg',
@@ -11,40 +11,37 @@ let characters = ['./images/tanjiro.jpg',
     './images/tomioka.jpg',
     './images/kyojuro.jpg',
     './images/uzui.jpg'];
-let img_card;
-let count = 1;
-let img_cards = [];
-let visibility = 0;
+// from html
 const back = document.getElementById('background');
 const time = document.getElementById('timer');
 const min = document.getElementById('min');
 const sec = document.getElementById('sec');
+// for timer function
 let s = 0;
 let m = 1;
 let timeController = true;
+// variables to control cards
+let img_card;
+let count = 1;
+let img_cards = [];
+let visibility = 0;
 
-function addElement() {
+function mainGame() {
     const divStart = document.getElementById('ButtonBackground');
     time.style.visibility = 'visible';
 
     const imgs = [];
-    const imgs_srcs = [];
 
     back.removeChild(button);
     back.removeChild(divStart);
 
-
-    for(let i=0;i<characters.length;i++){
-        imgs_srcs.push(characters[i]);
-        imgs_srcs.push(characters[i]);
-    }
-
-    for(let i=0;i<characters.length*2;i++) {
+    for(let i=0;i<characters.length;i++) {
+        for(let j=0;j<2;j++) {
         let img = new Image();
-        img.src = imgs_srcs[i];
-        img.id = 'char_imgs';
-        imgs[i] = img;
-    }
+        img.src = characters[i];
+        imgs.push(img);
+        };
+    };
 
     shuffleArray(imgs);
     
@@ -55,7 +52,12 @@ function addElement() {
 
         back.appendChild(div);
 
-        div.addEventListener("click", function(){showCard(div.id)}, false);
+        div.addEventListener("click", myListener);
+
+        //problem here and in line 114
+        function myListener(){
+            showCard(i);
+        };
 
         img_card = document.createElement('div');
         img_card.className = 'imgCard';
@@ -66,8 +68,7 @@ function addElement() {
         div.appendChild(img_card);
 
     }
-
-    
+   
 }
 
 function showCard(id) {
@@ -76,15 +77,15 @@ function showCard(id) {
         divImgCard.style.visibility = 'visible';
         img_cards.push(divImgCard.id);
     };
-
     if (img_cards[0] != img_cards[1]) {
         if (count == 2) {
-                verify(img_cards);
-            }
+            verify(img_cards);
+        }
         count++;
     } else {
         img_cards.shift();
     };
+    
     
     if(visibility == characters.length) {
         timeController = false;
@@ -107,6 +108,11 @@ function verify(cubeHTML) {
     count = 1;
     img_cards = [];
     visibility++;
+    for(let i=0;i<2;i++) {
+        // id is equal to last number of imgCard id, which is the same than card id
+        let id = document.getElementById(cubeHTML[i]).id.slice(-1);
+        document.getElementById(id).removeEventListener("click", myListener);
+    }
    } else {
     setTimeout(function() {
         document.getElementById(cubeHTML[0]).style.visibility = 'hidden';
@@ -122,8 +128,7 @@ function end() {
         const id = document.getElementById(i);
         id.parentNode.removeChild(id);
     }
-    // change this line
-    //time.style.visibility = 'hidden';
+
     let btn = document.createElement('button');
     btn.id = 'restartBtn';
     btn.textContent = 'Jogar de novo';
